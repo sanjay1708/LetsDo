@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <title>Let's Do</title>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-    <h1>To-Do-List</h1>
+    <nav>
+        <div class="nav-wrapper">
+            <a class="brand-logo center">To-Do:</a>
+
+        </div>
+    </nav>
     <ul></ul>
     <script>
         const electron = require('electron');
@@ -15,9 +20,10 @@
 
         // catch add tasks
         ipcRenderer.on('task:add',function(e,task){
-            
+            ul.className = 'collection';
             const li = document.createElement('li');
             const taskText = document.createTextNode(task);
+            li.className = 'collection-item';
             li.appendChild(taskText);
             ul.appendChild(li);
          });
@@ -32,6 +38,9 @@
          ul.addEventListener('dblclick', removeTask);
          function removeTask(e){
              e.target.remove();
+             if(ul.children.length == 0){
+                 ul.className = '';
+             }
          }
         
          
