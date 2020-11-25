@@ -5,6 +5,8 @@ const { createPublicKey } = require('crypto');
 
 const {app, BrowserWindow,Menu, ipcMain} = electron;
 
+//set env
+process.env.NODE_ENV = 'production';
 let mainWindow;
 let addWindow;
 
