@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Let's Do</title>
+    
+</head>
+<body>
+    <h1>To-Do-List</h1>
+    <ul></ul>
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+        const ul =document.querySelector('ul');
+     
+
+        // catch add tasks
+        ipcRenderer.on('task:add',function(e,task){
+            
+            const li = document.createElement('li');
+            const taskText = document.createTextNode(task);
+            li.appendChild(taskText);
+            ul.appendChild(li);
+         });
+
+         // catch clear tasks
+         ipcRenderer.on('task:clear',function(e,task){
+            ul.innerHTML='';
+         });
+
+         //remove tasks
+
+         ul.addEventListener('dblclick', removeTask);
+         function removeTask(e){
+             e.target.remove();
+         }
+        
+         
+    </script>
+</body>
+</html>
