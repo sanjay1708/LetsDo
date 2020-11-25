@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sanjay1708/LetsDo/issues"
   },
-  "homepage": "https://github.com/sanjay1708/LetsDo#readme"
+  "homepage": "https://github.com/sanjay1708/LetsDo#readme",
+  "dependencies": {
+    "electron": "^11.0.3"
+  }
 }
